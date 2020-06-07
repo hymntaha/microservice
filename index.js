@@ -10,6 +10,13 @@ app.get('/post', (req, res) =>{
 
 app.post('/post', (req, res) =>{
     const id = randomBytes(4).toString('hex');
+    const {title} = req.body;
+
+    post[id] = {
+	id, title
+    };
+
+    res.send(201).send(posts[id]);
 });
 
 app.listen(4000, () => {
