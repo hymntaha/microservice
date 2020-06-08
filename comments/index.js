@@ -7,11 +7,11 @@ app.use(bodyParser.json());
 
 const posts = {};
 
-app.get('/comments', (req, res) =>{
+app.get('/posts/:id/comments', (req, res) =>{
     res.send(posts);
 });
 
-app.post('/comments', (req, res) =>{
+app.post('/posts/:id/comments', (req, res) =>{
     const id = randomBytes(4).toString('hex');
     const {title} = req.body;
 
@@ -22,6 +22,6 @@ app.post('/comments', (req, res) =>{
     res.send(201).send(posts[id]);
 });
 
-app.listen(4000, () => {
-   console.log('Listening on 4000);
+app.listen(4001, () => {
+   console.log('Listening on 4001);
 });
