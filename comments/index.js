@@ -5,14 +5,14 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const posts = {};
+const commentsByPostId = {};
 
 app.get('/posts/:id/comments', (req, res) =>{
     res.send(posts);
 });
 
 app.post('/posts/:id/comments', (req, res) =>{
-    const id = randomBytes(4).toString('hex');
+    const commentId = randomBytes(4).toString('hex');
     const {title} = req.body;
 
     post[id] = {
